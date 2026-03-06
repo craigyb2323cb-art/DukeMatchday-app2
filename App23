@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Duke of Devonshire Live Sport</title>
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0b1d3a;
+color:white;
+}
+
+.header{
+display:flex;
+align-items:center;
+gap:20px;
+padding:20px;
+background:#07142a;
+}
+
+.logo{
+height:70px;
+}
+
+h1{
+margin:0;
+font-size:28px;
+}
+
+.board{
+padding:20px;
+}
+
+.controls{
+position:fixed;
+bottom:0;
+width:100%;
+background:#07142a;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:10px;
+}
+
+button{
+background:#0072ff;
+border:none;
+padding:10px 16px;
+color:white;
+border-radius:6px;
+font-weight:bold;
+}
+
+.badge{
+background:#0072ff;
+padding:6px 12px;
+border-radius:20px;
+font-size:14px;
+margin-left:10px;
+}
+
+iframe{
+border:none;
+width:100%;
+height:800px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<img src="assets/duke-logo.png" class="logo">
+
+<h1>Duke of Devonshire Live Sport</h1>
+
+</div>
+
+<div class="board">
+
+<!-- FANZO SPORTS FEED -->
+
+<iframe
+src="https://widget.fanzo.com/?id=14245">
+</iframe>
+
+</div>
+
+<div class="controls">
+
+<button onclick="assign('1')">Sky Box 1</button>
+<button onclick="assign('2')">Sky Box 2</button>
+<button onclick="assign('3')">Sky Box 3</button>
+
+</div>
+
+<script>
+
+function assign(box){
+
+localStorage.setItem("tvbox",box)
+
+alert("Assigned to Sky Box " + box)
+
+}
+
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("service-worker.js")
+}
+
+</script>
+
+</body>
+</html>
